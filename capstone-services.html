@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mouseelastic.css">
+    <link rel="stylesheet" href="class.css">
+    <div class="circle"></div>
+    
+    <script src="mouseelastic.js"></script>
+    <style>
+        /* Your CSS styles */
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom right, rgb(232, 231, 231) 50%, rgb(65, 65, 65) 50%);
+        }
+        
+        .serb {
+            padding: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            height: 250px;
+            width: 210px;
+            border-radius: 15px;
+            background-color: rgb(67, 63, 63);
+            margin: 20px;
+            border: 0px transparent;
+            padding: 0px;
+            transition: border 0.3s ease;
+            scale: 1;
+            transition: scale 0.5s;
+            display: inline-block;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+        }
+        
+        .serb:hover {
+            border: 5px solid beige;
+            scale: 1.2;
+        }
+        
+        .subserbcontainer {
+            overflow: hidden;
+            width: 135px;
+            height: 85px;
+            position: relative;
+            top: 0%;
+            left: 18%;
+        }
+        
+        .subserb {
+            overflow: hidden;
+            padding: 5px;
+            position: relative;
+            bottom: 20%;
+            left: 5%;
+            height: 75px;
+            width: 120px;
+            border-radius: 15px;
+            background-color: rgb(225, 248, 244);
+            margin-top: 20px;
+            border: 0px transparent;
+            padding: 0px;
+            scale: 1;
+            transition: scale() 0.5s, block 0.5s, none 0.2s;
+            display: none;
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+        }
+        
+        .subserb:hover {
+            border: 1px solid rgb(48, 48, 43);
+            scale: 1.1;
+        }
+        
+        .servimg {
+            height: 130px;
+            width: 210px;
+            position: relative;
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            display: inline-block;
+        } 
+        
+        .slide-btn {
+            position: absolute;
+            top: 72%;
+            border-radius: 8px;
+            border: transparent;
+        }
+        
+        .serbtitleclass {
+            float: left;
+            position: fixed;
+            font-size: 30px;
+            top: 20%;
+            left: 18%;
+            font-family: 'Courier New', Courier, monospace;
+            color: antiquewhite;
+            display: block;
+            transition: 0.75s display;
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+<body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const serbContainers = document.querySelectorAll(".serb");
+        
+        serbContainers.forEach(function(container) {
+            let slideIndex = 0;
+            const slides = container.querySelectorAll(".subserbcontainer .subserb");
+    
+            function showSlides() {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slides[slideIndex].style.display = "block";
+
+            }
+            container.querySelector("#prev-btn").addEventListener("click", function() {
+                slideIndex--;
+                if (slideIndex < 0) {
+                    slideIndex = slides.length - 1;
+                }
+                showSlides();
+            });
+    
+            container.querySelector("#next-btn").addEventListener("click", function() {
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                showSlides();
+            });
+    
+            showSlides();
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+    function divclickupdate() {
+        let x = document.querySelectorAll(".subserb");
+
+        x.forEach(function(element) {
+            element.addEventListener('click', function() {
+                alert("You have chosen " + element.innerHTML);
+            });
+        });
+    }
+
+    divclickupdate();
+});
+    function takebacktocapstone() {
+        window.location.href = "capstone.html"
+    }
+
+</script>
+<div style="font-size: 100px; font-family: 'Courier New', Courier, monospace; color: black; position: fixed; left: 5%; top: 35%; text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);">
+    Services
+</div>
+<table style="float: right;">
+    <tr>
+        <td>
+            <div class="serb" style="top: 50%; left: 18%;">
+                <input type="image" class="servimg" src="OIP.jfif">
+                <div class="serbtitleclass" style="z-index: 9999;">Car-Wash</div>
+                <button class="slide-btn" id="prev-btn" style="position: relative; float: left; top: 18%; left: 3px;">prev</button>
+                <button class="slide-btn" id="next-btn" style="position: relative; float: left; top: 18%; left: 62%;">next</button>
+                <div class="subserbcontainer">
+                    <div class="subserb">Full Body</div>
+                    <div class="subserb">General Wash</div>
+                    <div class="subserb">Interior Clean</div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="serb" style="top: 50%; left: 45%;">
+    <input type="image" class="servimg" src="OIP (3).jfif">
+    <div class="serbtitleclass" style="left: 1.5px; z-index: 9999;">Car-Maintenance</div>
+    <button class="slide-btn" id="prev-btn" style="position: relative; float: left; top: 18%; left: 3px;">prev</button>
+    <button class="slide-btn" id="next-btn" style="position: relative; float: left; top: 18%; left: 62%">next</button>
+    <div class="subserbcontainer">
+        <div class="subserb">Oil Change</div>
+        <div class="subserb">Tire Rotation</div>
+        <div class="subserb">Engine Check</div>
+    </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="serb" style="top: 50%; left: 45%;">
+                <input type="image" class="servimg" src="OIP (4).jfif">
+                <div class="serbtitleclass" style="left: 1.5px; z-index: 9999;">Air Quality</div>
+                <button class="slide-btn" id="prev-btn" style="position: relative; float: left; top: 18%; left: 3px;">prev</button>
+                <button class="slide-btn" id="next-btn" style="position: relative; float: left; top: 18%; left: 62%">next</button>
+                <div class="subserbcontainer">
+                    <div class="subserb">Air-Duct Cleaning</div>
+                    <div class="subserb">Air-Filter Change</div>
+                </div>
+        </td>
+        <td>
+            <div class="serb" style="top: 50%; left: 45%;">
+                <input type="image" class="servimg" src="OIP (5).jfif">
+                <div class="serbtitleclass" style="left: 1.5px; font-size: 25px; z-index: 9999;">Car-Refurbishment</div>
+                <button class="slide-btn" id="prev-btn" style="position: relative; float: left; top: 18%; left: 3px;">prev</button>
+                <button class="slide-btn" id="next-btn" style="position: relative; float: left; top: 18%; left: 62%">next</button>
+                <div class="subserbcontainer">
+                    <div class="subserb">Exterior Detailing</div>
+                    <div class="subserb">Interior Detailing</div>
+                </div>
+        </td>
+    </tr>
+</table>
+<div>
+    <img src="R.png" alt="arrow" style="float: left; position: fixed; scale: 0.05; top: 50%; left: 50%; transform: translate(-2100%, -1550%);" onclick="takebacktocapstone()">
+</div>
+</body>
+</html>

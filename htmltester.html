@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mouseelastic.css">
+        <link rel="stylesheet" href="class.css">
+    </head>
+    <div class="circle"></div>
+    
+      <script src="mouseelastic.js"></script>
+    <style>
+        .signform {
+            background-color: #202123;
+            width: 400px;
+            height: 475px;
+            padding: 15px;
+            border: 0px transparent;
+            border-radius: 15px;
+            margin: 10px;
+            position: fixed;
+            float: left;
+            margin-left: 10px;
+            top: 10%;
+            left: 1%;
+        }
+
+        .defont {
+            font-family: 'Courier New', Courier, monospace;
+            color: wheat;
+        }
+
+        .formblock {
+            width: 350px;
+            height: 27px;
+            background-color: rgb(86, 87, 84);
+            border-radius: 5px;
+        }
+
+        .btnac {
+            width: 60px;
+            height: 30px;
+            padding: 4px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: -1.5px;
+            text-align: center;
+            margin: 1.5px;
+            padding: 2px;
+            transition: border 0.5s ease;
+            background-color: #2fffb3;
+        }
+
+        .btnac:hover {
+            border: 3px solid white;
+        }
+
+        .error {
+            color: red;
+        }
+        .formwidget {
+            background-color: #202123;
+            width: 320px;
+            height: 70px;
+            padding: 15px;
+            border: 0px transparent;
+            border-radius: 15px;
+            margin: 10px;
+            position: relative;
+            float: right;
+            margin-left: 10px;
+            transition: height 0.7s;
+            overflow: hidden;
+            text-align: center;
+        }
+        .formwidget:hover {
+            height: 275px;
+        }
+        .info {
+            display: none;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0);
+            transition: opacity 0.5s ease;
+            
+        }
+
+        .formwidget:hover .info {
+            display: block;
+        }
+        .overlay {
+            display: block;
+            position: fixed;
+            float: left;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background-color: #8e8e97;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            height: 0px;
+            width:0px;
+            opacity: 0;
+            transition: height 0.7s, width 0.7s, opacity 0.3s;
+        }
+
+        .feedbacksent {
+            width: 100px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #354057;
+            position: fixed;
+            bottom: -10%;
+            right: 15%;
+            transform: translate(-50%, -50%);
+            transition: bottom 0.5s;
+        }
+    </style>
+    <script>
+        function formvalidation() {
+            var govname = document.getElementById('a-name').value;
+            var email = document.getElementById('a-email').value;
+            var password = document.getElementById('a-passw').value;
+            var phone = document.getElementById('a-phoneno').value;
+            var gender = document.querySelector('input[name="gender-options"]:checked');
+            var ethnicity = document.getElementById('ethnicity').value;
+
+            var govnameError = document.getElementById('govnameError');
+            var emailError = document.getElementById('emailError');
+            var passwordError = document.getElementById('passwordError');
+            var phoneError = document.getElementById('phoneError');
+            var genderError = document.getElementById('genderError');
+            var ethnicityError = document.getElementById('ethnicityError');
+
+            govnameError.innerHTML = "";
+            emailError.innerHTML = "";
+            passwordError.innerHTML = "";
+            phoneError.innerHTML = "";
+            genderError.innerHTML = "";
+            ethnicityError.innerHTML = "";
+
+            if (govname == "") {
+                govnameError.innerHTML = "Name is required";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            if (email == "") {
+                emailError.innerHTML = "Email is required";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            if (password == "") {
+                passwordError.innerHTML = "Password is required";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            if (phone == "") {
+                phoneError.innerHTML = "Phone Number is required";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            if (!gender) {
+                genderError.innerHTML = "Please select a gender";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            if (ethnicity == "") {
+                ethnicityError.innerHTML = "Please select an ethnicity";
+                alert("Form hasnt been completed");
+                return false;
+            }
+
+            alert("Registration successful!");
+            window.location.href ='file:///C:/Users/Ezekiel%20Chang/capstone.html'
+            return true;
+        }
+        function account_reset() {
+            var btnReset = document.getElementById('a-rst.btn');
+            addEventListener(onclick).reset();
+        }
+        function showPrompt() {
+            var overlay = document.getElementById('promptPanel');
+            var nameplate = document.getElementById('a-name').value;
+            var gender = document.getElementsByName('gender-options');
+            var greetings = ["Hello", "Bonjour", "Hola", "Greetings", "Howdy", "Aloha", "Ciao", "Guten Tag", "G'day", "Shalom"];
+            var randomIndex = Math.floor(Math.random() * greetings.length);
+            if(nameplate == "") {
+                document.getElementById("govnamereplay").innerHTML = greetings[randomIndex]+", User";
+            }
+            else{
+                document.getElementById("govnamereplay").innerHTML = greetings[randomIndex]+ ", " + nameplate;
+            }
+            overlay.style.opacity = 1;
+            overlay.style.height = '200px';
+            overlay.style.width = '400px';
+        }
+        function closePrompt() {
+            var overlay = document.getElementById('promptPanel');
+            overlay.style.opacity = 0;
+            overlay.style.height = '0px';
+            overlay.style.width = '0px';
+            overlay.style.display = none;
+        }
+        function backtohome() {
+            window.location.href = 'capstone.html'
+            return true;
+        }
+    </script>
+</head>
+<body>
+    
+    <div>
+        <div class="outer-div" style="float: left; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); top: 1px; left: 10px; position: fixed;">
+            <div class="animcontainer" style="text-align: left;" onclick="backtohome()">
+                <h1 class="topright-typer" style="text-align: center; font-family: 'Courier New', Courier, monospace;">Account</h1>
+            </div>
+        </div>
+    </div>
+    <div class="signform" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <form id="capstone.account-signin" >
+            <fieldset>
+                <legend class="headfont" style="color: wheat; font-size: 20px;">Make Your Profile:</legend>
+                <label class="headfont" style="color: wheat;">Name</label>
+                <input type="text" id="a-name" placeholder="Full Name" class="formblock" style="margin-bottom: 10px; color: aliceblue;">
+                <span id="govnameError" class="error"></span>
+                <label class="headfont" style="color: wheat;">E-mail</label>
+                <input type="email" id="a-email" placeholder="example@gmail.com" class="formblock" style="margin-bottom: 10px; color: aliceblue;">
+                <span id="emailError" class="error"></span>
+                <label class="headfont" style="color: wheat;">Password</label>
+                <input type="password" id="a-passw" placeholder="password" class="formblock" style="margin-bottom: 10px; color: aliceblue;">
+                <span id="passwordError" class="error"></span>
+                <label class="headfont" style="color: wheat;">Phone Number</label>
+                <input type="tel" id="a-phoneno" placeholder="123 4567 890" class="formblock" style="margin-bottom: 10px; color: aliceblue;">
+                <span id="phoneError" class="error"></span>
+                <label class="headfont" style="color: wheat;">Address</label>
+                <input type="text" id="a-address" placeholder="Permanent Residence" class="formblock" style="margin-bottom: 5px; color: aliceblue;">
+                <input type="radio" id="male" name="gender-options">
+                <label class="defont">Male</label>
+                <input type="radio" id="Female" name="gender-options">
+                <label class="defont">Female</label><br>
+                <span id="genderError" class="error"></span>
+                <label class="defont" for="ethnicity" style="margin-top: 5px;">Ethnicity</label><br>
+                <select style="font-family: 'Courier New', Courier, monospace; margin: 5px; margin-bottom: 17px;" name=ethniticy
+                    id="ethnicity">
+                    <option>Malay</option>
+                    <option>Chinese</option>
+                    <option>American</option>
+                    <option>Indian</option>
+                    <option>African</option>
+                    <option>Other</option>
+                </select><br>
+                <span id="ethnicityError" class="error"></span>
+                <button onclick="formvalidation()" id="a-btn" class="btnac" style="width: 60px; margin-right: 5px;">Submit</button>
+                <button onclick="" id="a-rst.btn" class="btnac">Reset</button>
+            </fieldset>
+        </form>
+        <table style="float: left; top: 9.5%; left: 37%; position: fixed;">
+            <tr>
+                <td>
+                    <div class="formwidget" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <h2 class="defont" style="bottom: 50%;">Feedback</h3>
+                            <div class="info">
+                                <pre class="defont">Write us a review!<br>___________________________
+                                </pre><br>
+                                <button class="btnac" onclick="showPrompt()" style="width: 125px; height: 75; margin-right: 5px;">Begin</button>
+                            </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="formwidget" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <h2 class="defont" style="bottom: 50%;">Purchases</h3>
+                            <br>
+                            <p class="defont">_____________________________</p><br>
+                            <p class="defont">You have not purchased anything at the moment!</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="overlay" id="promptPanel" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);">
+        <p id="govnamereplay" class="defont"></p>
+        <input type="text" placeholder="feedback here ^-^" style="height: 100px; width: 300px; text-align: start;"><br>
+        <button onclick="closePrompt()" class="btnac">Submit</button>
+    </div>
+    <div class="feedbacksent"></div>
+</body>
+
+</html>

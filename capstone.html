@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mouseelastic.css">
+
+  <style>
+    /* Your CSS styles */
+    html {
+      background-color: #343541;
+    }
+    .headfont {
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+    }
+    .header {
+      transition: 0.5s ease-in;
+      padding-right: 200px;
+      top: 0;
+      bottom: 0;
+      padding: 15px;
+      padding-left: 5px;
+      font-size: 30px;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    .centered-div {
+      width: 845px;
+      height: 435px;
+      border-radius: 8px;
+      background-color: black;
+      font-size: larger;
+      position: absolute;
+      border: 1px;
+      border-color: none;
+      margin-top: 1px;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .banner {
+      height: 80vh;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      text-align: center;
+      text-align: left=50%;
+    }
+    .container {
+      position: absolute;
+      bottom: 10%;
+      text-align: center;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 50px;
+    }
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -275%);
+    }
+    @keyframes cursor {
+      50% { border-color: transparent; }
+    }
+    @keyframes typing {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    .typer {
+      white-space: nowrap;
+      overflow: hidden;
+      animation: 
+      typing 5s steps(450),
+      cursor .2s step-end infinite alternate;
+      position: fixed;
+      width: 100%;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -200%);
+      z-index: 999;
+    }
+    .animcontainer {
+      display: inline-block;
+    }
+    .optdis {
+      background-size: inherit;
+      background-position: absolute;
+      border-radius: 15px;
+      text-align: center;
+      margin: 15px;
+      margin-top: 5px;
+      border: 1px transparent;
+      margin-left: 5px;
+      margin-right: 5px;
+      float: left;
+    }
+    .optcontainer {
+      position: absolute;
+      float: left;
+      bottom: 15px;
+      right: 70px;
+      text-align: center;
+    }
+    .cimg {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: 150px;
+      width: 275px;
+      border-radius: 15px;
+      border-color: transparent;
+      border: 0px;
+      padding: -3px;
+      transition: border .25s, padding .5s;
+    }
+    .cimg:hover {
+      border-radius: 15px; 
+      border: 5px solid;
+      border-color: rgb(0, 0, 0);
+      padding: 3px;
+    }
+    .box-title {
+      position: relative;
+      float: left;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -400%);
+      margin: 0;
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .cimg-container {
+      position: relative;
+      margin-bottom: 15px;
+      float: left;
+      bottom: 7%;
+      left: 8px;
+    }
+    .cimg-container:hover .cimg {
+      border-radius: 15px;
+      border: 5px solid;
+      border-color: beige;
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+<div class="circle"></div>
+<script src="mouseelastic.js"></script>
+  <div class="container">
+    <img style="margin-top: 2px; border-radius: 2px; height: 100%; width: 100%;" src="3rvaetcR.jpeg" alt="mountain">
+    <div class="animcontainer" style="top: 60%; left: 50%;">
+      <div class="typer">car-NINE</div>
+    </div>
+  </div>
+  <div class="optcontainer">
+    <table class="optdis" style="width: 100%; border-spacing: 15px; margin-left: 23px;">
+      <th>
+        <td style="width: 22%;">
+          <div style="text-align: center;" class="headfont, cimg-container" onmouseover="handleMouseEnter(this)" onmouseleave="handleMouseLeave(this)">
+            <input onclick="redirecttocapstoneaccount()" type="image" class="cimg" src="porsche-4977482_1280.jpg" alt="porsche emblem">
+            <p class="box-title">Account</p>
+          </div>
+        </td>
+        <td style="width: 22%;">
+          <div style="text-align: center;" class="headfont, cimg-container" onmouseover="handleMouseEnter(this)" onmouseleave="handleMouseLeave(this)">
+            <input onclick="redirecttocapstoneservices()" type="image" class="cimg" src="auto-2205316_1280.jpg" alt="porsche emblem">
+            <p class="box-title">Services</p>
+          </div>
+        </td>
+        <td style="width: 22%;">
+          <div style="text-align: center;" class="headfont, cimg-container" onmouseover="handleMouseEnter(this)" onmouseleave="handleMouseLeave(this)" onclick="redirecttocarslideshow()">
+            <input type="image" class="cimg" src="car-6293917_1280.jpg" alt="porsche emblem">
+            <p class="box-title">Showroom</p>
+          </div>
+        </td>
+        <td style="width: 22%;">
+          <div style="text-align: center;" class="headfont, cimg-container" onmouseover="handleMouseEnter(this)" onmouseleave="handleMouseLeave(this)" onclick="redirecttoevent()">
+            <input type="image" class="cimg" src="automobile-5330343_1280.jpg" alt="porsche emblem">
+            <p class="box-title">News & Events</p>
+          </div>
+        </td>
+      </th>
+    </table>
+  </div>
+  <script>
+    function handleMouseEnter(element) {
+      var boxTitle = element.querySelector('.box-title');
+      boxTitle.style.transition = 'opacity 0.5s';
+      boxTitle.style.opacity = 1;
+      var otherTitles = document.querySelectorAll('.box-title');
+      otherTitles.forEach(function (title) {
+        if (title !== boxTitle) {
+          var opacityValue = 1;
+          var reduceOpacity = function () {
+            opacityValue -= 0.1;
+            title.style.opacity = opacityValue;
+            if (opacityValue > 0) {
+              setTimeout(reduceOpacity, 20); 
+            }
+          };
+          reduceOpacity();
+        }
+      });
+    };
+    function handleMouseLeave(element) {
+      var boxTitle = element.querySelector('.box-title');
+      boxTitle.style.transition = 'opacity .7s';
+      boxTitle.style.opacity = 1;
+      var allTitles = document.querySelectorAll('.box-title');
+      allTitles.forEach(function (title) {
+        title.style.opacity = 1;
+        boxTitle.style.transition = 'opacity .5s';
+      });
+    }
+    function redirecttocapstoneaccount() {
+      window.location.href = "capstone-account.html";
+      return true;
+    }
+    function redirecttocapstoneservices() {
+      window.location.href = "capstone-services.html";
+      return true;
+    }
+    function redirecttocarslideshow() {
+      window.location.href = "slideshow 1.html";
+    }
+    function redirecttoevent() {
+      window.location.href = "Event.html";
+    }
+  </script>
+</body>
+</html>
+

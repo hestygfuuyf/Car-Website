@@ -1,0 +1,19 @@
+.circle {
+    float: right;
+    --circle-size: 30px;
+    position: fixed;
+    height: var(--circle-size);
+    width: var(--circle-size);
+    border: 2px solid white;
+    border-radius: 100%;
+    top: calc(var(--circle-size) / 2 * -1);
+    left: calc(var(--circle-size) / 2 * -1);
+    pointer-events: none;
+    z-index: 998;
+    transition: .7s border;
+  }
+  p, button, input, label, span
+   {
+    z-index: 9999;
+  }
+  

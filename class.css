@@ -1,0 +1,175 @@
+
+    html{
+      background-color: #343541;
+    }
+    .headfont {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.header {
+    transition: 0.5s ease-in;
+    padding-right: 200px;
+    top: 0;
+    bottom: 0;
+    padding: 15px;
+    padding-left: 5px;
+    font-size: 30px;
+}
+
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .centered-div {
+      width: 845px;
+      height: 435px;
+      border-radius: 8px;
+      background-color: black;
+      font-size: larger;
+      position: absolute;
+      border: 1px;
+      border-color: none;
+      margin-top: 1px;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .banner {
+      height: 80vh;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      text-align: center;
+      text-align: left=50%;
+    }
+    .container {
+      position: absolute;
+      bottom: 10%;
+      text-align: center;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 50px;
+    }
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -275%);
+    }
+        @keyframes cursor{
+      50% {border-color: transparent;}
+    }
+    @keyframes typing{
+      from{
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    .typer {
+      white-space: nowrap;
+      overflow: hidden;
+      animation: 
+      typing 5s steps(450),
+      cursor .2s step-end infinite alternate;
+      position: fixed;
+      width: 100%;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -275%);
+    }
+    .animcontainer{
+      display: inline-block;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+
+    }
+
+    .optdis{
+      background-size: inherit;
+      background-position: absolute;
+      border-radius: 15px;
+      text-align: center;
+      margin: 15px;
+      margin-top: 5px;
+      border: 1px transparent;
+      margin-left: 5px;
+      margin-right: 5px;
+      float: left;
+    }
+    .optcontainer{
+      position: absolute;
+      float: left;
+      bottom: 15px;
+      right: 70px;
+      text-align: center;
+      
+    }
+    .cimg{
+      height: 150px;
+      width: 275px;
+      border-radius: 15px;
+      border-color: transparent;
+      border: 0px;
+      padding: -3px;
+      transition: border .25s, padding .5s;
+    }
+    .cimg:hover{
+      border-radius: 15px; 
+      border: 5px solid;
+      border-color: beige;
+      padding: 3px;
+    }
+    
+    .box-title {
+      position: relative;
+      float: left;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -500%);
+      margin: 0;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .cimg-container {
+      position: relative;
+      margin-bottom: 15px;
+      float: left;
+      bottom: 7%;
+      left: 8px;
+    }
+    
+    .cimg-container:hover .cimg {
+      border-radius: 15px;
+      border: 5px solid;
+      border-color: beige;
+      padding: 3px;
+    }
+    .topright-typer {
+        white-space: nowrap;
+        overflow: hidden;
+        animation: 
+        typing 0.7s steps(50),
+        cursor .2s step-end infinite alternate;
+        position: fixed;
+        width: 100%;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+    }
+    .outer-div {
+        width: 145px; /* Correct syntax for fit-content */
+        height: 30px; /* Correct syntax for fit-content */
+        background-color: aquamarine;
+        border-radius: 8px;
+        float: left;
+        text-align: center;
+        padding: 5px; /* Padding added for space around the content */
+        top: 8px;
+        left: 5px;
+        transform: translate(10%, 50%);
+    }

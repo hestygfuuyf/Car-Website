@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:;
+            color:;
+            background-image:url('https://t3.ftcdn.net/jpg/03/12/22/06/360_F_312220617_RYUnWE2XLsPDReOosFB71ADPYOOR5e1N.jpg')
+                 }
+
+        header {
+            background-image:url('https://www.freewebheaders.com/wp-content/gallery/other-backgrounds/red-lonely-chair-website-header-design.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color:black;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        section {
+            text-align: center;
+            padding: 40px;
+            background-color:#99FF99;
+            background-image:url('https://t4.ftcdn.net/jpg/02/81/82/39/360_F_281823904_TK2JQp5F2z13LGbLZHfMorsPtFdEzR2J.jpg');
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           
+ }
+
+        #event-details {
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color:;
+            color:#FFFFFF;
+            background-color:;
+            background-image:url('https://t3.ftcdn.net/jpg/02/91/65/70/360_F_291657078_Qicf1iAn8AcuvlC9juR8QJvGmiQj69gM.jpg');
+        }
+       
+h2{color:#FFFFFF;
+font-size:40px;
+background-color:red;
+}
+p{
+	color:#FFFFFF;
+	font-size:40px;
+	background-color:red;
+	border-style:groove;
+	 opacity: 0;
+     animation: fadeInOut 10s ease-in-out infinite;
+     }
+p3{
+	color:#FF0000;
+    font-size:20px;
+
+}
+h2{
+	color:#FFFFFF;
+	font-size:40px;
+	background-color:black;
+}
+
+ 
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity:0;
+      }
+      50% {
+        opacity: 1;
+      }   
+    }
+      
+      button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 999;
+            padding: 10px 15px; 
+            background-color: #4CAF50;
+            color:#fff; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+
+         
+  </style>
+</head>
+<body>
+<button onclick="myFunction()">Home</button>
+    <header>
+        <h1>Welcome to Our Event</h1>
+        <h2>Join us for an unforgettable experience</h2>
+    </header>
+
+    <section>
+        <img src="https://i.kinja-img.com/image/upload/c_fill,h_900,q_60,w_1600/53cde5f26bd3f492a45d6e789d58fb8f.jpg" alt="Event Image 1">
+            <div id="event-details">
+            <h2>Event Details</h2>
+            <p>Date: 06 MARCH 2024</p>
+        <p>Time: 2:00 PM - 5:00 PM</p>
+        <p>Venue: Porsche Showroom, VSQ LEVEL 6</p>
+
+        </div>
+    </section>
+
+    <footer>
+        <p3 id="date-time"></p3>
+    </footer>
+
+    <script>
+    
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            const dateTimeString = now.toLocaleDateString('en-US', options);
+            document.getElementById('date-time').innerText = `Current Date & Time: ${dateTimeString}`;
+        }
+
+
+        setInterval(updateDateTime, 1000);
+
+       
+        updateDateTime();
+      
+    
+
+    </script>
+    
+    <script>
+      
+         function myFunction() {
+            window.location.href = "capstone.html";
+         }
+   
+    </script>
+</body>
+</html>
